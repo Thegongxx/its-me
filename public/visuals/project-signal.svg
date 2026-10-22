@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" role="img" aria-labelledby="signal-title signal-desc">
   <title id="signal-title">A signal with a human boundary</title>
-  <desc id="signal-desc">Original geometric cover: a lime signal travels between two sculptural rings on a dark forest green field. Sparse paths and bounded nodes evoke selective, privacy-conscious sharing without presenting real activity data.</desc>
+  <desc id="signal-desc">Original geometric cover: a terracotta signal travels between two sculptural rings on a charcoal field. Sparse paths and bounded nodes evoke selective, privacy-conscious sharing without presenting real activity data.</desc>
   <defs>
-    <pattern id="signal-grid" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M70 0H0V70" stroke="#d9e3ce" stroke-opacity=".045" stroke-width="1"/></pattern>
+    <pattern id="signal-grid" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M70 0H0V70" stroke="#dbd7cc" stroke-opacity=".045" stroke-width="1"/></pattern>
     <clipPath id="signal-orbit"><ellipse cx="683" cy="493" rx="440" ry="238" transform="rotate(-19 683 493)"/></clipPath>
   </defs>
-  <path fill="#18372c" d="M0 0h1400v1000H0z"/>
+  <path fill="#343638" d="M0 0h1400v1000H0z"/>
   <path fill="url(#signal-grid)" d="M0 0h1400v1000H0z"/>
-  <g stroke="#d8e5cc" stroke-opacity=".13" stroke-width="1">
+  <g stroke="#dbd7cc" stroke-opacity=".13" stroke-width="1">
     <ellipse cx="683" cy="493" rx="537" ry="326" transform="rotate(-19 683 493)"/>
     <ellipse cx="683" cy="493" rx="479" ry="276" transform="rotate(-19 683 493)"/>
     <ellipse cx="683" cy="493" rx="440" ry="238" transform="rotate(-19 683 493)"/>
@@ -17,9 +17,9 @@
   <ellipse cx="461" cy="632" rx="208" ry="50" fill="#0b251c" opacity=".5"/>
   <g transform="translate(439 452) rotate(-20)">
     <path d="M-152 50c0-125 68-226 152-226S152-75 152 50 84 276 0 276-152 175-152 50Zm58 0c0 87 42 158 94 158S94 137 94 50 52-108 0-108-94-37-94 50Z" fill="#081f17" fill-rule="evenodd"/>
-    <path d="M-152 0c0-125 68-226 152-226S152-125 152 0 84 226 0 226-152 125-152 0Zm58 0c0 87 42 158 94 158S94 87 94 0 52-158 0-158-94-87-94 0Z" fill="#d4f562" stroke="#101f17" stroke-width="1.5" fill-rule="evenodd"/>
-    <path d="M-152 0v50c0 125 68 226 152 226v-50C-84 226-152 125-152 0Z" fill="#a1bd48" stroke="#101f17" stroke-width="1.5"/>
-    <path d="M94 0v50c0-87-42-158-94-158v-50C52-158 94-87 94 0Z" fill="#839d3c" stroke="#101f17" stroke-width="1.5"/>
+    <path d="M-152 0c0-125 68-226 152-226S152-125 152 0 84 226 0 226-152 125-152 0Zm58 0c0 87 42 158 94 158S94 87 94 0 52-158 0-158-94-87-94 0Z" fill="#c58e76" stroke="#101f17" stroke-width="1.5" fill-rule="evenodd"/>
+    <path d="M-152 0v50c0 125 68 226 152 226v-50C-84 226-152 125-152 0Z" fill="#a26955" stroke="#101f17" stroke-width="1.5"/>
+    <path d="M94 0v50c0-87-42-158-94-158v-50C52-158 94-87 94 0Z" fill="#834e3d" stroke="#101f17" stroke-width="1.5"/>
     <ellipse cy="0" rx="126" ry="194" stroke="#26422c" stroke-opacity=".4" stroke-width="1"/>
     <path d="M0-226v68M-152 0h58M0 226v-68M152 0H94" stroke="#26422c" stroke-opacity=".45" stroke-width="1"/>
     <path d="m-91-179 31 48m-81 33 51 24m-51 179 51-24m-1 98 31-48m151 48-31-48m81-33-51-24m51-179-51 24m1-98-31 48" stroke="#26422c" stroke-opacity=".3" stroke-width="1"/>
@@ -27,36 +27,36 @@
   <!-- A smaller receiving ring has an intentional opening. -->
   <ellipse cx="1015" cy="557" rx="159" ry="35" fill="#0b251c" opacity=".4"/>
   <g transform="translate(1002 397) rotate(-20)">
-    <path d="M-107 25c0-88 48-159 107-159s107 71 107 159S59 184 0 184s-107-71-107-159Zm41 0c0 61 30 111 66 111s66-50 66-111S36-86 0-86-66-36-66 25Z" fill="#0d291f" stroke="#6c8b60" stroke-width="1.5" fill-rule="evenodd"/>
-    <path d="M-107 0c0-88 48-159 107-159S107-88 107 0 59 159 0 159-107 88-107 0Zm41 0c0 61 30 111 66 111S66 61 66 0 36-111 0-111-66-61-66 0Z" fill="#527247" stroke="#9eb98a" stroke-width="1.5" fill-rule="evenodd"/>
-    <path d="M-107 0v25c0 88 48 159 107 159v-25c-59 0-107-71-107-159Z" fill="#304f37" stroke="#789469" stroke-width="1.2"/>
-    <path d="M66 0v25c0-61-30-111-66-111v-25C36-111 66-61 66 0Z" fill="#223d2c" stroke="#789469" stroke-width="1.2"/>
-    <ellipse rx="86" ry="135" stroke="#bed3a9" stroke-opacity=".4"/>
+    <path d="M-107 25c0-88 48-159 107-159s107 71 107 159S59 184 0 184s-107-71-107-159Zm41 0c0 61 30 111 66 111s66-50 66-111S36-86 0-86-66-36-66 25Z" fill="#0d291f" stroke="#899586" stroke-width="1.5" fill-rule="evenodd"/>
+    <path d="M-107 0c0-88 48-159 107-159S107-88 107 0 59 159 0 159-107 88-107 0Zm41 0c0 61 30 111 66 111S66 61 66 0 36-111 0-111-66-61-66 0Z" fill="#7c8583" stroke="#b3bab2" stroke-width="1.5" fill-rule="evenodd"/>
+    <path d="M-107 0v25c0 88 48 159 107 159v-25c-59 0-107-71-107-159Z" fill="#505855" stroke="#9ba498" stroke-width="1.2"/>
+    <path d="M66 0v25c0-61-30-111-66-111v-25C36-111 66-61 66 0Z" fill="#404843" stroke="#9ba498" stroke-width="1.2"/>
+    <ellipse rx="86" ry="135" stroke="#d2d4c8" stroke-opacity=".4"/>
   </g>
   <!-- Discrete signal pieces connect the rings; no measured data is implied. -->
-  <path d="m467 451 502-174" stroke="#cee8b3" stroke-opacity=".45" stroke-width="1.3" stroke-dasharray="5 8"/>
-  <path d="m515 476 440-152" stroke="#d4f562" stroke-width="2"/>
-  <path d="m542 498 402-139" stroke="#cee8b3" stroke-opacity=".25" stroke-width="1"/>
-  <g fill="#d4f562" stroke="#18372c" stroke-width="1.5">
+  <path d="m467 451 502-174" stroke="#e4dbc5" stroke-opacity=".45" stroke-width="1.3" stroke-dasharray="5 8"/>
+  <path d="m515 476 440-152" stroke="#c58e76" stroke-width="2"/>
+  <path d="m542 498 402-139" stroke="#e4dbc5" stroke-opacity=".25" stroke-width="1"/>
+  <g fill="#c58e76" stroke="#343638" stroke-width="1.5">
     <path d="m620 423 32-11 11 32-32 11Z"/>
     <path d="m703 394 32-11 11 32-32 11Z"/>
     <path d="m786 365 32-11 11 32-32 11Z"/>
   </g>
-  <g stroke="#d4f562" stroke-width="1.2">
+  <g stroke="#c58e76" stroke-width="1.2">
     <path d="m637 406 15-5 5 15m63-39 15-5 5 15m63-39 15-5 5 15"/>
   </g>
   <!-- Detached status marker; clearly a visual symbol, not a live UI claim. -->
   <g transform="translate(811 685)">
-    <path d="m0 0 113-39 108 62-113 40Z" fill="#d4f562" stroke="#0c281c" stroke-width="1.5"/>
-    <path d="M0 0v24l108 63V63Z" fill="#a8c64d" stroke="#0c281c" stroke-width="1.5"/>
-    <path d="M108 63v24l113-40V23Z" fill="#86a43b" stroke="#0c281c" stroke-width="1.5"/>
-    <path d="m45 6 63-22 68 39-63 22Z" fill="#18372c"/>
-    <path d="m76 5 24 14 36-12" stroke="#d4f562" stroke-width="3"/>
+    <path d="m0 0 113-39 108 62-113 40Z" fill="#c58e76" stroke="#0c281c" stroke-width="1.5"/>
+    <path d="M0 0v24l108 63V63Z" fill="#ae735e" stroke="#0c281c" stroke-width="1.5"/>
+    <path d="M108 63v24l113-40V23Z" fill="#8a5541" stroke="#0c281c" stroke-width="1.5"/>
+    <path d="m45 6 63-22 68 39-63 22Z" fill="#343638"/>
+    <path d="m76 5 24 14 36-12" stroke="#c58e76" stroke-width="3"/>
   </g>
-  <g stroke="#bed3a9" stroke-opacity=".5" stroke-width="1.2">
+  <g stroke="#d2d4c8" stroke-opacity=".5" stroke-width="1.2">
     <path d="M178 225h36m-18-18v36M1208 731h36m-18-18v36M666 829h36m-18-18v36"/>
     <path d="M207 711h152l48-28M1088 229h102l39-39"/>
-    <circle cx="207" cy="711" r="5" fill="#18372c"/>
-    <circle cx="1229" cy="190" r="5" fill="#d4f562" stroke="#d4f562"/>
+    <circle cx="207" cy="711" r="5" fill="#343638"/>
+    <circle cx="1229" cy="190" r="5" fill="#c58e76" stroke="#c58e76"/>
   </g>
 </svg>

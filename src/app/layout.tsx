@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/noto-sans-sc";
 import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/instrument-serif/latin-400.css";
+import "@fontsource/instrument-serif/latin-400-italic.css";
 import "./globals.css";
 const site = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const metadata: Metadata = {
@@ -11,5 +13,5 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   robots: process.env.DEMO_MODE === "true" || process.env.VERCEL_ENV === "preview" ? { index: false, follow: false } : { index: true, follow: true }
 };
-export const viewport: Viewport = { themeColor: "#f5f4ef", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#f3f0e9", width: "device-width", initialScale: 1 };
 export default function RootLayout({ children }: { children: React.ReactNode }) { return <html lang="zh-CN" data-scroll-behavior="smooth"><body><a href="#main" className="skip-link">跳到主要内容</a>{children}</body></html>; }

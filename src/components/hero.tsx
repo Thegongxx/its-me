@@ -1,69 +1,62 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { SceneStage } from "@/components/scene-stage";
-import { TiltSurface } from "@/components/tilt-surface";
+import { CoverReel } from "@/components/cover-reel";
 import { StatusPanel } from "@/components/status-panel";
-import { dateLabel } from "@/lib/format";
+import { LearningRow } from "@/components/ui";
 import { mediaUrl } from "@/lib/content";
 import type { Entry, Profile, PublicStatus } from "@/lib/types";
+import "./home.css";
+
+function Cover({ entry }: { entry: Entry }) {
+  const src = mediaUrl(entry.cover_path);
+  return src ? <Image src={src} alt={`${entry.title}${entry.demo ? " · 示例概念图" : "项目封面"}`} fill
+    sizes="(max-width: 760px) 88vw, 65vw" loading="eager" unoptimized/> : <span className="cover-fallback">{entry.title}</span>;
+}
 
 export function Hero({ profile, projects, notes, status, demo }: {
   profile: Profile; projects: Entry[]; notes: Entry[]; status: PublicStatus | null; demo: boolean;
 }) {
-  return <><div className="home-story" id="home-story">
-    <SceneStage/>
-    <div className="story-chapters">
-    <section className="story-section home-hero" id="hello" aria-labelledby="hero-title">
-      <p className="hero-kicker mono"><i/> A PERSONAL WORK IN PROGRESS</p>
-      <div className="hero-copy">
-        <div className="hero-identity">
-        <p className="hero-greeting">你好，我是</p>
-        <h1 id="hero-title">Xuan<span>.</span></h1>
-        </div>
-        <div className="hero-description">
-        <p className="hero-statement">把想法，慢慢做出来。</p>
-        <p className="hero-intro">{profile.bio}</p>
-        <Link href="/about" className="underlined-link">认识一下 <ArrowUpRight size={18}/></Link>
-        </div>
+  return <div className="home-editorial">
+    <CoverReel>
+      <div className="reel-introduction">
+        <p className="reel-greeting">你好，我是</p>
+        <h1 className="reel-name">Xuan<em>.</em></h1>
+        <p className="reel-bio">{profile.bio}</p>
+        <Link className="editorial-link" href="/about">关于我 <ArrowUpRight size={16}/></Link>
       </div>
-      <div className="hero-bottomline">
-        <StatusPanel initial={status} demo={demo}/>
-        <a href="#selected-work" className="scroll-invitation"><span className="mono">SCROLL TO EXPLORE</span><ArrowDown size={23} strokeWidth={1.4}/></a>
+      <div className="reel-covers" aria-label="作品预览">
+        {projects.slice(0, 2).map((entry, i) => <div className={`reel-cover reel-cover-${i}`} key={entry.id}>
+          <Link href={`/work/${entry.slug}`} className={`reel-picture theme-${entry.theme}`} aria-label={`打开作品：${entry.title}`}>
+            <Cover entry={entry}/>
+            <span className="reel-open"><ArrowUpRight size={22}/></span>
+            {entry.demo && <span className="reel-demo">示例作品</span>}
+          </Link>
+          <div className="reel-caption"><span>{entry.title}</span><span>{entry.year}</span></div>
+        </div>)}
+        {!projects.length && <div className="reel-awaiting"><span>Work in progress.</span><p>作品整理中</p></div>}
       </div>
+      <div className="reel-foot"><span>个人作品与学习记录</span><a href="#selected-work">往下看看 <ArrowDown size={16}/></a></div>
+    </CoverReel>
+
+    <section className="home-selection" id="selected-work" aria-labelledby="selection-title">
+      <div className="editorial-heading"><h2 id="selection-title"><span lang="en">Selected work</span><small>作品选集</small></h2><Link href="/work" className="editorial-link">全部作品 <ArrowUpRight size={17}/></Link></div>
+      <div className="selection-grid">{projects.length ? projects.slice(0, 2).map(entry => <article className="selected-project" key={entry.id}>
+        <Link className={`selected-image theme-${entry.theme}`} href={`/work/${entry.slug}`} aria-label={`查看作品：${entry.title}`}>
+          <Cover entry={entry}/>{entry.demo && <span className="reel-demo">示例作品</span>}<span className="reel-open"><ArrowUpRight size={22}/></span>
+        </Link>
+        <div className="selection-caption"><h3><Link href={`/work/${entry.slug}`}>{entry.title}</Link></h3><span>{entry.year}</span></div>
+        <p>{entry.summary}</p>
+      </article>) : <p className="editorial-empty">作品整理中，发布后会出现在这里。</p>}</div>
     </section>
-    <section className="story-section chapter-work" id="selected-work" aria-labelledby="work-chapter-title">
-      <div className="gallery-heading">
-        <div><span className="chapter-label"><span className="mono">01 / THE GALLERY</span> 作品陈列</span>
-        <h2 id="work-chapter-title">想法的另一面<span>。</span></h2></div>
-        <p>做过的，正在做的。<br/>点开一件作品，看看它如何发生。</p>
-      </div>
-      <div className="home-gallery">{projects.length ? projects.slice(0, 2).map((entry, index) => {
-          const cover = mediaUrl(entry.cover_path);
-          return <TiltSurface className="gallery-surface" key={entry.id}><Link className="gallery-exhibit" href={`/work/${entry.slug}`}>
-            <div className={`gallery-image theme-${entry.theme}`}>
-              {cover ? <Image src={cover} alt={`${entry.title}${entry.demo ? "概念示意图" : "项目封面"}`} fill sizes="(max-width: 760px) 90vw, 45vw" unoptimized/> : <span className="gallery-placeholder">{entry.title.slice(0, 2)}</span>}
-              <span className="exhibit-number mono">{String(index + 1).padStart(2, "0")}</span>
-              {entry.demo && <span className="exhibit-demo mono">示例作品</span>}
-              <span className="exhibit-open">进入作品 <ArrowUpRight size={18}/></span>
-            </div>
-            <div className="exhibit-label"><div><h3>{entry.title}</h3><p>{entry.categories.map(c => c.name).join(" / ")}</p></div><ArrowUpRight size={24} strokeWidth={1.3}/></div>
-          </Link></TiltSurface>;
-        }) : <p className="home-empty">第一份作品，待发布。</p>}</div>
-      <Link href="/work" className="underlined-link gallery-all">进入作品档案 <ArrowUpRight size={18}/></Link>
+
+    <section className="home-journal" id="latest-notes" aria-labelledby="journal-title">
+      <div className="journal-intro"><h2 id="journal-title" lang="en">Notes<br/><em>& thoughts.</em></h2><p>写下遇到的问题，<br/>也留下解决问题的过程。</p><Link className="editorial-link" href="/learn">全部笔记 <ArrowUpRight size={17}/></Link></div>
+      <div className="journal-entries">{notes.length ? notes.slice(0, 3).map((entry, i) => <LearningRow key={entry.id} entry={entry} index={i}/>) : <p className="editorial-empty">还没有发布的笔记。</p>}</div>
     </section>
-    <section className="story-section chapter-learn" id="latest-notes" aria-labelledby="learn-chapter-title">
-      <div className="chapter-copy">
-        <span className="chapter-label"><span className="mono">02 / ON MY DESK</span> 学习桌面</span>
-        <h2 id="learn-chapter-title">想法，<br/>还在生长<span>。</span></h2>
-        <p className="chapter-intro">有时是一个答案，<br/>有时，是一个更好的问题。</p>
-        <Link href="/learn" className="underlined-link">翻开全部笔记 <ArrowUpRight size={18}/></Link>
-      </div>
-      <div className="home-notebook">{notes.length ? notes.slice(0, 3).map((entry, index) => <Link className="note-slip" href={`/learn/${entry.slug}`} key={entry.id}>
-        <div className="slip-meta mono"><span>{String(index + 1).padStart(2, "0")} / {dateLabel(entry.published_at)}</span>{entry.demo && <span>示例笔记</span>}</div>
-        <h3>{entry.title}</h3><p>{entry.summary}</p><span className="slip-read">继续阅读 <ArrowUpRight size={18}/></span>
-      </Link>) : <p className="home-empty">第一篇笔记，待发布。</p>}</div>
+
+    <section className="home-personal" aria-label="近况与联系"><div className="personal-status"><span className="personal-caption">屏幕的另一边</span><StatusPanel initial={status} demo={demo}/></div>
+      <Link href="/about" className="personal-link"><span>很高兴在这里遇见你。</span><span className="personal-signature" lang="en">More about me <ArrowUpRight strokeWidth={1}/></span></Link>
     </section>
-    </div>
-  </div><footer className="home-end"><Link href="/about" className="home-signoff">未完，待续。<ArrowUpRight strokeWidth={1.2}/><span>更多关于我</span></Link><div className="home-colophon"><span>{demo ? "预览 · 作品和学习内容为示例" : "© 2026 Xuan"}</span><a href="#hello">回到顶部 ↑</a></div></footer></>;
+  </div>;
 }

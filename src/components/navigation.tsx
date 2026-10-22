@@ -3,8 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { XMark } from "@/components/x-mark";
-const links = [{ href: "/work", label: "作品", n: "01" }, { href: "/learn", label: "学习", n: "02" }, { href: "/about", label: "关于", n: "03" }];
+const links = [{ href: "/work", label: "作品" }, { href: "/learn", label: "笔记" }, { href: "/about", label: "关于" }];
 export function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -21,9 +20,9 @@ export function Navigation() {
     return () => window.removeEventListener("keydown", escape);
   }, [open]);
   return <header className="site-header">
-    <Link href="/#hello" className="wordmark" aria-label="Xuan 首页"><XMark/>Xuan<span className="brand-caption">个人网站</span></Link>
+    <Link href="/#hello" className="wordmark" aria-label="Xuan 首页">Xuan<span className="wordmark-dot"/></Link>
     <nav className="desktop-nav" aria-label="主导航">{links.map(l => <Link key={l.href} href={l.href} aria-current={pathname.startsWith(l.href) ? "page" : undefined}>{l.label}</Link>)}</nav>
     <button ref={menuButton} className="menu-toggle icon-button" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "关闭导航" : "打开导航"} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>
-    {open && <nav id="mobile-nav" className="mobile-nav" aria-label="移动导航">{links.map(l => <Link key={l.href} href={l.href} aria-current={pathname.startsWith(l.href) ? "page" : undefined}><span>{l.label}</span><span className="mono">{l.n} ↗</span></Link>)}</nav>}
+    {open && <nav id="mobile-nav" className="mobile-nav" aria-label="移动导航">{links.map(l => <Link key={l.href} href={l.href} aria-current={pathname.startsWith(l.href) ? "page" : undefined}><span>{l.label}</span><span aria-hidden="true">↗</span></Link>)}</nav>}
   </header>;
 }

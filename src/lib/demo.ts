@@ -2,7 +2,7 @@ import type { Category, Entry, Profile } from "./types";
 
 export const placeholderProfile: Profile = {
   id: 1, name: "Xuan", headline: "个人作品与学习记录", bio: "这里放着我的作品、学习笔记，\n以及那些还在尝试的事。",
-  location: "所在地待填写", email: "", github_url: "", introduction: "## 个人介绍\n\n待填写。关于我的背景、正在关注的问题，以及想做的事情。", published: true
+  location: "所在地待填写", email: "", github_url: "", introduction: "个人介绍待填写。", published: true
 };
 export const demoCategories: Category[] = [
   { id: "10000000-0000-4000-8000-000000000001", name: "交互与设计", slug: "design", description: "探索人与界面的关系", published: true },

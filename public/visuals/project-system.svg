@@ -1,55 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" role="img" aria-labelledby="system-title system-desc">
   <title id="system-title">A modular system, unfolded</title>
-  <desc id="system-desc">Original illustrative cover: a pale sage field holds an exploded constellation of abstract interface modules, a dark circular dial, and a lime connector. This is conceptual artwork, not a product screenshot.</desc>
+  <desc id="system-desc">Original illustrative cover: a warm grey field holds an exploded constellation of abstract interface modules, a dark circular dial, and a terracotta connector. This is conceptual artwork, not a product screenshot.</desc>
   <defs>
-    <pattern id="system-grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" stroke="#213d32" stroke-opacity=".055" stroke-width="1"/></pattern>
+    <pattern id="system-grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" stroke="#393832" stroke-opacity=".055" stroke-width="1"/></pattern>
   </defs>
-  <path fill="#dce2d5" d="M0 0h1400v1000H0z"/>
+  <path fill="#dddeda" d="M0 0h1400v1000H0z"/>
   <path fill="url(#system-grid)" d="M0 0h1400v1000H0z"/>
-  <circle cx="709" cy="497" r="365" stroke="#213d32" stroke-opacity=".11"/>
-  <circle cx="709" cy="497" r="284" stroke="#213d32" stroke-opacity=".08"/>
-  <path d="M217 761 707 478l482 278-490 283Z" fill="#203b31" opacity=".045"/>
+  <circle cx="709" cy="497" r="365" stroke="#393832" stroke-opacity=".11"/>
+  <circle cx="709" cy="497" r="284" stroke="#393832" stroke-opacity=".08"/>
+  <path d="M217 761 707 478l482 278-490 283Z" fill="#393832" opacity=".045"/>
   <!-- Rear module: a calm, cut-paper index. -->
-  <path d="m266 291 278-161 365 211-278 160Z" fill="#f4f5ed" stroke="#294235" stroke-width="1.8"/>
-  <path d="M266 291v29l365 211v-30Z" fill="#bbc8b5" stroke="#294235" stroke-width="1.8"/>
-  <path d="M631 501v30l278-161v-29Z" fill="#a8bca4" stroke="#294235" stroke-width="1.8"/>
-  <path d="m309 291 57-33 52 30-57 33Z" fill="#d4f562" stroke="#294235" stroke-width="1.2"/>
-  <path d="m395 340 204-118M419 354l204-118M443 368l145-84" stroke="#294235" stroke-opacity=".45" stroke-width="1.5"/>
-  <path d="m476 391 71-41 79 46-71 41Z" fill="#dce2d5" stroke="#294235" stroke-width="1.2"/>
-  <path d="m570 445 71-41 79 46-71 41Z" fill="#dce2d5" stroke="#294235" stroke-width="1.2"/>
-  <path d="m576 333 77-44 146 84-77 45Z" fill="#2e4537"/>
-  <path d="m605 333 47-27 88 51-47 28Z" fill="#d4f562"/>
+  <path d="m266 291 278-161 365 211-278 160Z" fill="#f5f2e9" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M266 291v29l365 211v-30Z" fill="#c9c5bb" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M631 501v30l278-161v-29Z" fill="#b8b2a7" stroke="#49453d" stroke-width="1.8"/>
+  <path d="m309 291 57-33 52 30-57 33Z" fill="#c7896d" stroke="#49453d" stroke-width="1.2"/>
+  <path d="m395 340 204-118M419 354l204-118M443 368l145-84" stroke="#49453d" stroke-opacity=".45" stroke-width="1.5"/>
+  <path d="m476 391 71-41 79 46-71 41Z" fill="#dddeda" stroke="#49453d" stroke-width="1.2"/>
+  <path d="m570 445 71-41 79 46-71 41Z" fill="#dddeda" stroke="#49453d" stroke-width="1.2"/>
+  <path d="m576 333 77-44 146 84-77 45Z" fill="#3d3933"/>
+  <path d="m605 333 47-27 88 51-47 28Z" fill="#c7896d"/>
   <!-- A column of open, nested frames, suggesting a flexible information system. -->
-  <path d="m797 336 154-89 222 128-154 89Z" fill="#eef1e7" stroke="#294235" stroke-width="1.8"/>
-  <path d="M797 336v32l222 128v-32Z" fill="#b7c7ac" stroke="#294235" stroke-width="1.8"/>
-  <path d="M1019 464v32l154-89v-32Z" fill="#9fb597" stroke="#294235" stroke-width="1.8"/>
-  <path d="m844 336 107-62 175 101-107 62Z" fill="#dce2d5" stroke="#294235" stroke-width="1.3"/>
-  <path d="m843 336 108 30 67 71M951 274l-1 92 176 9" stroke="#294235" stroke-opacity=".38"/>
-  <circle cx="950" cy="366" r="7" fill="#d4f562" stroke="#294235" stroke-width="1.3"/>
+  <path d="m797 336 154-89 222 128-154 89Z" fill="#edeae1" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M797 336v32l222 128v-32Z" fill="#c5c1b6" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M1019 464v32l154-89v-32Z" fill="#aea89b" stroke="#49453d" stroke-width="1.8"/>
+  <path d="m844 336 107-62 175 101-107 62Z" fill="#dddeda" stroke="#49453d" stroke-width="1.3"/>
+  <path d="m843 336 108 30 67 71M951 274l-1 92 176 9" stroke="#49453d" stroke-opacity=".38"/>
+  <circle cx="950" cy="366" r="7" fill="#c7896d" stroke="#49453d" stroke-width="1.3"/>
   <!-- Front plate and instrumentation: abstract, without fabricated data. -->
-  <path d="m193 519 259-149 389 224-259 150Z" fill="#f7f8ef" stroke="#294235" stroke-width="1.8"/>
-  <path d="M193 519v31l389 225v-31Z" fill="#bfceba" stroke="#294235" stroke-width="1.8"/>
-  <path d="M582 744v31l259-150v-31Z" fill="#9db495" stroke="#294235" stroke-width="1.8"/>
-  <path d="m229 519 223-129 353 204-223 129Z" stroke="#294235" stroke-opacity=".22"/>
-  <ellipse cx="441" cy="523" rx="130" ry="75" transform="rotate(30 441 523)" fill="#263e31"/>
-  <ellipse cx="441" cy="523" rx="103" ry="59" transform="rotate(30 441 523)" stroke="#f7f8ef" stroke-opacity=".3" stroke-width="1.5"/>
-  <path d="m441 523 77-44" stroke="#d4f562" stroke-width="4"/>
-  <circle cx="441" cy="523" r="7" fill="#d4f562"/>
-  <path d="m449 443 4 13m52 15-10 7m28 37-15 3m-14 45-12-5m-56 14-1-12m-53-17 11-6m-30-37 15-2m14-43 13 4" stroke="#f7f8ef" stroke-width="1.4" stroke-opacity=".65"/>
-  <path d="m570 621 137-79M590 633l137-79M610 645l87-50" stroke="#294235" stroke-width="1.5"/>
-  <path d="m541 672 42-24 43 24-43 25Z" fill="#d4f562" stroke="#294235" stroke-width="1.2"/>
-  <!-- Lime bridge, the only fully saturated volume. -->
-  <path d="m850 582 138-80 157 91-138 80Z" fill="#d4f562" stroke="#294235" stroke-width="1.8"/>
-  <path d="M850 582v92l157 91v-92Z" fill="#b6d850" stroke="#294235" stroke-width="1.8"/>
-  <path d="M1007 673v92l138-80v-92Z" fill="#9dbd3e" stroke="#294235" stroke-width="1.8"/>
-  <path d="m891 582 97-56 116 67-97 56Z" stroke="#294235" stroke-opacity=".28" stroke-width="1.2"/>
-  <path d="m881 635 94 54v33l-94-54Z" fill="#294235"/>
-  <path d="m1031 681 90-52m-90 67 90-52m-90 67 56-32" stroke="#294235" stroke-opacity=".35" stroke-width="1.1"/>
-  <g stroke="#294235" stroke-opacity=".4" stroke-width="1.2">
+  <path d="m193 519 259-149 389 224-259 150Z" fill="#f6f3ea" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M193 519v31l389 225v-31Z" fill="#cbc5b8" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M582 744v31l259-150v-31Z" fill="#b3aa9a" stroke="#49453d" stroke-width="1.8"/>
+  <path d="m229 519 223-129 353 204-223 129Z" stroke="#49453d" stroke-opacity=".22"/>
+  <ellipse cx="441" cy="523" rx="130" ry="75" transform="rotate(30 441 523)" fill="#3d3933"/>
+  <ellipse cx="441" cy="523" rx="103" ry="59" transform="rotate(30 441 523)" stroke="#f6f3ea" stroke-opacity=".3" stroke-width="1.5"/>
+  <path d="m441 523 77-44" stroke="#c7896d" stroke-width="4"/>
+  <circle cx="441" cy="523" r="7" fill="#c7896d"/>
+  <path d="m449 443 4 13m52 15-10 7m28 37-15 3m-14 45-12-5m-56 14-1-12m-53-17 11-6m-30-37 15-2m14-43 13 4" stroke="#f6f3ea" stroke-width="1.4" stroke-opacity=".65"/>
+  <path d="m570 621 137-79M590 633l137-79M610 645l87-50" stroke="#49453d" stroke-width="1.5"/>
+  <path d="m541 672 42-24 43 24-43 25Z" fill="#c7896d" stroke="#49453d" stroke-width="1.2"/>
+  <!-- Terracotta bridge, the only fully saturated volume. -->
+  <path d="m850 582 138-80 157 91-138 80Z" fill="#c7896d" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M850 582v92l157 91v-92Z" fill="#a96b54" stroke="#49453d" stroke-width="1.8"/>
+  <path d="M1007 673v92l138-80v-92Z" fill="#8e5443" stroke="#49453d" stroke-width="1.8"/>
+  <path d="m891 582 97-56 116 67-97 56Z" stroke="#49453d" stroke-opacity=".28" stroke-width="1.2"/>
+  <path d="m881 635 94 54v33l-94-54Z" fill="#49453d"/>
+  <path d="m1031 681 90-52m-90 67 90-52m-90 67 56-32" stroke="#49453d" stroke-opacity=".35" stroke-width="1.1"/>
+  <g stroke="#49453d" stroke-opacity=".4" stroke-width="1.2">
     <path d="m267 660-85 49 110 64m552-321 73-42m-173 365-74 43m203-41 90 52 97-56" stroke-dasharray="5 7"/>
     <path d="M184 203h46m-23-23v46M1204 504h46m-23-23v46M749 886h46m-23-23v46"/>
   </g>
-  <circle cx="294" cy="774" r="5" fill="#d4f562" stroke="#294235"/>
-  <circle cx="674" cy="819" r="5" fill="#dce2d5" stroke="#294235"/>
-  <circle cx="1084" cy="829" r="5" fill="#dce2d5" stroke="#294235"/>
+  <circle cx="294" cy="774" r="5" fill="#c7896d" stroke="#49453d"/>
+  <circle cx="674" cy="819" r="5" fill="#dddeda" stroke="#49453d"/>
+  <circle cx="1084" cy="829" r="5" fill="#dddeda" stroke="#49453d"/>
 </svg>

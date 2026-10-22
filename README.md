@@ -1,6 +1,6 @@
 # Xuan · 个人作品与记录
 
-一个独立的个人网站。用作品、学习记录和真实经历介绍自己，首页保留一行公开实时状态。暖白封面、深色作品陈列、浅绿笔记桌面组成三段空间；原创分层 X 在开场响应操作，随滚动拆解并退出。
+一个独立的个人网站。用作品、学习记录和真实经历介绍自己，首页保留一行公开实时状态。本轮重设计以个人作品册为方向：米白、炭黑、暗红标记与衬线字；错落封面随原生滚动展开，随后进入作品与笔记。
 
 ## 本地运行
 
@@ -35,7 +35,7 @@ npm start
 
 整站承担个人履历展示，不再设置独立简历页。旧 `/resume` 跳转 `/about`；旧 `/now` 跳转首页状态位置。
 
-X 支持有限角度拖动、轻微惯性、点击拆解/合拢、复位和暂停；拖动松开后回到易于辨认的角度。聚焦雕塑后，方向键旋转，Enter/空格展开，Home/Escape 复位。手机纵向滑动保留页面滚动；减少动态效果偏好关闭自动漂浮、惯性和过渡插值。WebGL 不可用时显示静态图形，正文与导航仍可使用。作品陈列可随鼠标轻微倾斜，纸张笔记在悬停或键盘聚焦时抬起；手机保留直接点击和原生滚动。
+首屏的作品封面直接链接到项目详情。桌面原生滚动驱动封面展开，不劫持滚轮；淡出链接退出键盘焦点序列。手机使用独立的纵向构图与直接点击；`prefers-reduced-motion` 关闭滚动变换，内容保持静态可读。已移除 WebGL X、拖动拆解控件与 Three.js 依赖。图片、标题与链接均由服务端渲染。
 
 ## 接入 Supabase
 
@@ -58,15 +58,15 @@ X 支持有限角度拖动、轻微惯性、点击拆解/合拢、复位和暂�
 
 ```text
 src/app/                  App Router 页面、状态和 Route Handlers
-src/components/           阅读、导航、后台、实时状态与 WebGL 交互
+src/components/           阅读、导航、后台、实时状态与封面转场
 src/lib/                  数据访问、授权、验证和纯逻辑
 supabase/migrations/      PostgreSQL / RLS / Storage / Realtime 迁移
 desktop-agent/            Windows 托盘采集器与测试
-tests/                    权限、设备、过期、数据库、Markdown、手势测试
+tests/                    权限、设备、过期、数据库、Markdown 测试
 public/visuals/           原创概念示例插图
 docs/                     架构、素材、部署与实际检查记录
 ```
 
-技术栈：Next.js App Router / React / TypeScript / Tailwind / Motion / Three.js / Supabase。页面与数据读取优先服务端组件；只有交互与实时组件进入客户端。没有独立后端服务。
+技术栈：Next.js App Router / React / TypeScript / Tailwind / Motion / Supabase。页面与数据读取优先服务端组件；只有交互与实时组件进入客户端。没有独立后端服务。
 
 源码仓库：[Thegongxx/its-me](https://github.com/Thegongxx/its-me)。**当前没有配置 Vercel，也没有提供真实 Supabase 环境；云端登录、图片上传、Realtime 和设备 HTTPS 联调不作为已验证结果。**
