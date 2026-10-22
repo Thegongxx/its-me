@@ -13,6 +13,7 @@
 | npm 安装检查 | 更新锁定字体依赖并移除 Three.js，审计报告 0 个已知漏洞 |
 | 活跃 SVG | 三份均通过 XML、尺寸、可访问标签及无主动内容检查，并在页面中实际查看 |
 | HTTP 路由 | 15 条：12 个 200、`/resume` 和 `/now` 两个 308、未知地址 404 |
+| GitHub Actions | 源码提交 `d701ccc` 的 web 与 Windows agent 任务均成功；[运行记录](https://github.com/Thegongxx/its-me/actions/runs/39780033562) |
 
 权限测试覆盖登录与管理员授权分离、忽略用户 metadata、普通账号不能写入或提升权限、撤销管理员权限后的隔离、仅发布内容公开及未发布媒体不可读。设备与状态测试覆盖凭证哈希/格式/有效期/撤销、service-role RPC 边界、重放与频率限制、切换设备清空状态、90 秒 TTL、独立过期与客户端钟差。Python 测试覆盖默认暂停、白名单、空闲、受限载荷、序号持久化、拒绝重定向、当前用户 DPAPI 和 Win32 API。
 
@@ -52,6 +53,7 @@ PGlite 执行真实 PostgreSQL 逻辑，但 Auth/Storage 平台边界使用 stub
 - 页面滚动保持浏览器原生行为，未绑定滚轮拦截或纵向手势控制；转场后隐藏链接有 inert。
 - 全部主页面有直接访问路由；旧 `/resume` → `/about`、`/now` → `/#now`。独立简历与动态说明页没有恢复。
 - 生产构建的作品入口、手机菜单、首屏图片加载和尺寸规则再次通过浏览检查。
+- 本次生产预览浏览期间，控制台 warning/error 查询为空；未知路径另确认了实际 404 UI 与回首页入口。
 - 首页 canonical 与标题正确，示例模式为 `noindex, nofollow`。OG、图标、robots、sitemap 正常响应。
 - 生产模式本机 HTTP 一次抽样约 9–160ms，不能解释为公网速度或 Core Web Vitals 成绩。
 
