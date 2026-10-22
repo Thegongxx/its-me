@@ -1,0 +1,71 @@
+/* The hit area follows the object, leaving the document's links and scroll untouched. */
+.home-story { display: grid; }
+.home-story>.scene-layer, .story-chapters { grid-area: 1 / 1; }
+.home-story>.scene-layer { align-self: start; margin-bottom: 0; }
+.story-chapters { min-width: 0; pointer-events: none; }
+.sculpture-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  border-radius: 24%;
+  padding: 0;
+  background: transparent;
+  pointer-events: auto;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sculpture-handle[data-dragging=true] { cursor: grabbing; }
+.sculpture-handle:focus-visible { outline: 1px dashed #738355; outline-offset: -12px; }
+.sculpture-tools {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
+  color: #657155;
+  font-size: 11px;
+  line-height: 1;
+}
+.sculpture-tools>span { display: flex; align-items: center; gap: 9px; }
+.sculpture-tools i { width: 2px; height: 2px; border-radius: 50%; background: #8b957d; }
+.sculpture-tools button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d9dfce;
+  border-radius: 50%;
+  background: #f5f4efd9;
+  pointer-events: auto;
+  transition: background .2s, border-color .2s;
+}
+.sculpture-tools button:hover { border-color: #9daf7a; background: #e8efd9; }
+.scene-layer:not([data-ready=true]) .sculpture-handle,
+.scene-layer:not([data-ready=true]) .sculpture-tools,
+.sculpture-canvas[data-compact=true] .sculpture-tools,
+.sculpture-canvas[data-compact=true] .sculpture-handle { visibility: hidden; }
+.chapter-navigation>a { min-height: 44px; }
+.scene-motion-control { min-height: 44px; font-size: 11px; }
+@media (max-width: 760px) {
+  .hero-intro { font-size: 14px; max-width: 310px; }
+  .hero-copy>.underlined-link { font-size: 12px; min-height: 44px; }
+  .chapter-intro { font-size: 13px; }
+  .now-line, .scroll-invitation { font-size: 11px; }
+  .scroll-invitation { min-height: 44px; }
+  .hero-bottomline { bottom: 40px; }
+  .home-note>.mono, .home-note small, .home-project-text small { font-size: 10px; }
+  .sculpture-tools { gap: 8px; font-size: 10px; }
+  .scene-motion-control { bottom: 4px; font-size: 10px; }
+  .chapter-navigation { bottom: 4px; }
+  .chapter-navigation>a { min-width: 40px; min-height: 44px; }
+  .story-section { min-height: max(100svh, 720px); }
+  .scene-layer { height: 100svh; margin-bottom: -100svh; top: 0; }
+  .sculpture-canvas { height: 100%; }
+  .sculpture-fallback { width: 150px; height: 200px; top: 67%; }
+  .sculpture-fallback>span { left: 55px; width: 40px; height: 185px; }
+}

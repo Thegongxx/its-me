@@ -1,0 +1,29 @@
+import { describe, expect, it, vi } from "vitest";
+import { createDeviceCredential, hashToken, parseDeviceCredential } from "@/lib/device-auth";
+import { receiveHeartbeat } from "@/lib/heartbeat";
+import { requireSameOrigin } from "@/lib/http";
+import { statusView } from "@/lib/status";
+import { heartbeatInput } from "@/lib/validation";
+import type { PublicStatus } from "@/lib/types";
+const credential = createDeviceCredential();
+function req(data: unknown = { sequence: 1, category: "development", state: "active" }, auth = `Bearer ${credential.token}`, url = "https://portfolio.example/api/device/heartbeat") { return new Request(url, { method: "POST", headers: { "Content-Type": "application/json", Authorization: auth }, body: JSON.stringify(data) }); }
+describe("restricted device ingress", () => {
+  it("mints unpredictable credentials and hashes the entire token", () => { expect(credential.token).toMatch(/^bl_[\da-f-]{36}\.[\da-f]{64}$/); expect(credential.hash).toBe(hashToken(credential.token)); expect(credential.token).not.toBe(createDeviceCredential().token); expect(parseDeviceCredential(`Bearer ${credential.token}`)).toEqual({ id: credential.id, hash: credential.hash }); });
+  it("rejects missing and malformed credentials before touching persistence", async () => { const db = vi.fn(); for (const token of ["", "Bearer service-role", "bearer " + credential.token, "Bearer " + credential.token + "junk"]) expect((await receiveHeartbeat(req(undefined, token), db)).status).toBe(401); expect(db).not.toHaveBeenCalled(); });
+  it("never accepts arbitrary text, process names, titles or paths", async () => { const db = vi.fn(); for (const extra of [{ title: "secret" }, { path: "C:/private" }, { process: "chrome.exe" }, { category: "VS Code" }]) { expect((await receiveHeartbeat(req({ sequence: 1, state: "active", category: "development", ...extra }), db)).status).toBe(400); } expect(db).not.toHaveBeenCalled(); });
+  it("accepts only bounded safe sequence numbers", () => { for (const sequence of [-1, 1.5, Number.MAX_SAFE_INTEGER + 1, "1", Infinity]) expect(heartbeatInput.safeParse({ sequence, category: "none", state: "idle" }).success).toBe(false); });
+  it("requires HTTPS except explicitly enabled loopback development", async () => { const db = vi.fn(async () => "ok"); expect((await receiveHeartbeat(req(undefined, undefined, "http://example.org/api/device/heartbeat"), db, true)).status).toBe(400); expect((await receiveHeartbeat(req(undefined, undefined, "http://localhost/api/device/heartbeat"), db)).status).toBe(400); expect((await receiveHeartbeat(req(undefined, undefined, "http://localhost/api/device/heartbeat"), db, true)).status).toBe(200); });
+  it("passes only the hash and allowed enum fields into the atomic RPC", async () => { const db = vi.fn(async () => "ok"); expect((await receiveHeartbeat(req(), db)).status).toBe(200); expect(db).toHaveBeenCalledExactlyOnceWith({ p_device_id: credential.id, p_hash: credential.hash, p_sequence: 1, p_category: "development", p_state: "active" }); expect(JSON.stringify(db.mock.calls)).not.toContain(credential.token); });
+  it("bounds the actual body even without an honest Content-Length", async () => { const db = vi.fn(); const r = req({ padding: "x".repeat(3000) }); r.headers.set("Content-Length", "1"); expect((await receiveHeartbeat(r, db)).status).toBe(413); expect(db).not.toHaveBeenCalled(); });
+  it("does not expose backend errors or turn invalid device responses into success", async () => { const statuses: Record<string, number> = { unauthorized: 401, replay: 409, disabled: 409, throttled: 429, invalid: 400, unexpected: 503 }; for (const [result, status] of Object.entries(statuses)) expect((await receiveHeartbeat(req(), async () => result)).status).toBe(status); const r = await receiveHeartbeat(req(), async () => { throw new Error("secret-connection-string"); }); expect(await r.text()).not.toContain("secret-connection-string"); });
+});
+describe("status freshness without new pushes", () => {
+  const now = Date.parse("2026-10-22T00:00:00Z");
+  const value: PublicStatus = { id: 1, category: "development", state: "active", sharing: true, heartbeat_at: new Date(now).toISOString(), expires_at: new Date(now + 90000).toISOString() };
+  it("expires at the exact deadline with an unchanged snapshot", () => { expect(statusView(value, now + 89999).live).toBe(true); expect(statusView(value, now + 90000).mode).toBe("stale"); expect(statusView(value, now + 100000).description).not.toContain("开发"); });
+  it("never displays idle/paused state as application proficiency", () => { expect(statusView({ ...value, sharing: false }, now).mode).toBe("paused"); expect(statusView({ ...value, state: "paused" }, now).live).toBe(false); expect(statusView(null, now).mode).toBe("unconnected"); });
+  it("fails closed on missing/invalid timestamps", () => { expect(statusView({ ...value, expires_at: null }, now).mode).toBe("stale"); expect(statusView({ ...value, expires_at: "invalid" }, now).live).toBe(false); });
+});
+describe("admin mutation origins", () => {
+  it("requires a matching origin, including scheme and port", () => { const old = process.env.NEXT_PUBLIC_SITE_URL; process.env.NEXT_PUBLIC_SITE_URL = "https://portfolio.example"; try { expect(() => requireSameOrigin(new Request("https://portfolio.example/api/admin/content"))).toThrow(); for (const origin of ["https://attacker.example", "null", "http://portfolio.example", "https://portfolio.example:444"]) expect(() => requireSameOrigin(new Request("https://portfolio.example/api/admin/content", { headers: { origin } }))).toThrow(); expect(() => requireSameOrigin(new Request("https://portfolio.example/api/admin/content", { headers: { origin: "https://portfolio.example" } }))).not.toThrow(); } finally { if (old === undefined) delete process.env.NEXT_PUBLIC_SITE_URL; else process.env.NEXT_PUBLIC_SITE_URL = old; } });
+});

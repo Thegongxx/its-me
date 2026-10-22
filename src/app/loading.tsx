@@ -1,0 +1,1 @@
+export default function Loading() { return <div className="page-shell loading-page" aria-busy="true" aria-label="正在加载内容"><span className="mono">OPENING THE ARCHIVE…</span><div className="skeleton skeleton-title"/><div className="skeleton skeleton-copy"/><div className="loading-grid"><div className="skeleton"/><div className="skeleton"/></div><p>正在翻开下一页。</p></div>; }

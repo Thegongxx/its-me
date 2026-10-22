@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function robots(): MetadataRoute.Robots { const site = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"; const preview = process.env.DEMO_MODE === "true" || process.env.VERCEL_ENV === "preview"; return { rules: { userAgent: "*", ...(preview ? { disallow: "/" } : { allow: "/", disallow: ["/admin", "/api", "/auth"] }) }, sitemap: `${site}/sitemap.xml` }; }

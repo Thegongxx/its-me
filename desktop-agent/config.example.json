@@ -1,0 +1,14 @@
+{
+  "site_url": "https://your-domain.example",
+  "allow_local_http": false,
+  "whitelist": {
+    "code.exe": "development",
+    "figma.exe": "design",
+    "obsidian.exe": "writing"
+  },
+  "idle_seconds": 300,
+  "heartbeat_seconds": 30,
+  "poll_seconds": 2,
+  "paused": true,
+  "manual_state": null
+}

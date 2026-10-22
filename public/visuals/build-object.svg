@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="900" viewBox="0 0 1000 900" fill="none" role="img" aria-labelledby="build-title build-desc">
+  <title id="build-title">A construction in progress</title>
+  <desc id="build-desc">An original isometric sculpture of floating paper planes, a graphite module and an acid lime block, linked by precise construction lines.</desc>
+  <defs>
+    <pattern id="paper-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="#20211e" stroke-opacity=".1" stroke-width=".7"/></pattern>
+    <clipPath id="paper-clip"><path d="m242 307 219-126 295 170-219 127Z"/></clipPath>
+  </defs>
+  <g stroke="#20211e" stroke-width="1" opacity=".2">
+    <path d="M159 608 501 805 837 611M159 608V340M837 611V343"/>
+    <path d="m196 629 341-197 263 152M219 643l341-197 203 117M262 668l341-197M305 693l341-197M348 718l341-197M391 743l341-197M434 768l341-197" opacity=".45"/>
+    <path d="M501 805V566M461 181V687M756 351v340M242 307v315" stroke-dasharray="4 6"/>
+    <path d="m165 358 297-171M758 356l70 40M839 625v50M155 622v50"/>
+    <path d="m174 350-10 17m299-187-9 17M750 351l12 8M832 400l-12-7"/>
+  </g>
+  <path d="m193 638 304-176 321 185-305 176Z" fill="#20211e" opacity=".035"/>
+  <path d="m232 624 263-152 279 161-264 153Z" fill="#20211e" opacity=".045"/>
+  <!-- The base: a substantial, precisely cut paper volume. -->
+  <path d="m236 588 254-147 285 165-254 147Z" fill="#e9e8df" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M236 588v48l285 164v-47Z" fill="#d9d9cd" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M521 753v47l254-147v-47Z" fill="#c8cbbd" stroke="#20211e" stroke-width="1.4"/>
+  <path d="m250 612 271 156 240-138M250 623l271 156 240-138" stroke="#20211e" stroke-opacity=".2" stroke-width=".8"/>
+  <path d="m276 589 215-124 243 141-214 124Z" stroke="#20211e" stroke-opacity=".2" stroke-width=".8"/>
+  <!-- Open support frame; every face shares the same isometric projection. -->
+  <path d="m289 450 172-99 232 134-172 99Z" fill="#d0d6c8" stroke="#20211e" stroke-width="1.4"/>
+  <path d="m329 450 132-76 192 111-132 76Z" fill="#f3f2eb" stroke="#20211e" stroke-width="1.3"/>
+  <path d="M289 450v34l232 134v-34Z" fill="#b9c2b0" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M521 584v34l172-99v-34Z" fill="#aab7a0" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M329 450v17l132-77v-16Z" fill="#b9c2b0" stroke="#20211e" stroke-width="1.1"/>
+  <path d="M461 374v16l178 103 14-8Z" fill="#dbe0d4" stroke="#20211e" stroke-width="1.1"/>
+  <path d="M302 491v91l21 12v-91M659 539v70l21-12v-70" fill="#20211e"/>
+  <path d="M489 600v91l22 13v-92" fill="#20211e"/>
+  <!-- A separately suspended lime module. -->
+  <path d="m550 442 106-61 111 64-106 61Z" fill="#d4f562" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M550 442v109l111 64V506Z" fill="#bedc57" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M661 506v109l106-61V445Z" fill="#a4c846" stroke="#20211e" stroke-width="1.4"/>
+  <path d="m576 442 80-46 85 49-80 46Z" stroke="#20211e" stroke-opacity=".22" stroke-width="1"/>
+  <path d="M677 519v68l73-42v-68" stroke="#20211e" stroke-opacity=".25" stroke-width=".8"/>
+  <path d="m580 496 30 17v31l-30-17Z" fill="#20211e"/>
+  <!-- The working surface, deliberately detached from the frame below. -->
+  <path d="m242 307 219-126 295 170-219 127Z" fill="#faf9f2" stroke="#20211e" stroke-width="1.4"/>
+  <g clip-path="url(#paper-clip)" transform="matrix(.866 .5 -.866 .5 461 181)"><rect width="340" height="254" fill="url(#paper-grid)"/></g>
+  <path d="M242 307v18l295 170v-17Z" fill="#dedfd4" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M537 478v17l219-126v-18Z" fill="#cfd4c5" stroke="#20211e" stroke-width="1.4"/>
+  <path d="m270 307 191-110 267 154-191 110Z" stroke="#20211e" stroke-opacity=".18" stroke-width=".8"/>
+  <path d="m306 307 71-41 123 71-71 41Z" stroke="#20211e" stroke-width="1"/>
+  <path d="m334 307 43-25 68 39-43 25Z" fill="#d4f562"/>
+  <path d="m548 389 102-59m-84 69 102-59m-84 70 59-34" stroke="#20211e" stroke-width="1"/>
+  <circle cx="535" cy="430" r="3" fill="#20211e"/>
+  <!-- A graphite block hovers at the top of the assembly. -->
+  <path d="m410 154 94-54 147 85-94 54Z" fill="#3b3e37" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M410 154v69l147 85v-69Z" fill="#20211e" stroke="#20211e" stroke-width="1.4"/>
+  <path d="M557 239v69l94-54v-69Z" fill="#4c5145" stroke="#20211e" stroke-width="1.4"/>
+  <path d="m433 154 71-41 124 72-71 41Z" stroke="#f3f2eb" stroke-opacity=".2" stroke-width=".8"/>
+  <path d="m447 197 40 23v7l-40-23Z" fill="#d4f562"/>
+  <path d="M575 247v32l55-32v-32Z" fill="#30342d" stroke="#707b60" stroke-width=".8"/>
+  <g stroke="#20211e" stroke-width="1" opacity=".38">
+    <path d="M504 80V51m-10 14h20M805 450h55m-12-12v24M218 307h-43m12-10v20M522 836v-23m-10 12h20"/>
+    <path d="m814 714-38-22M806 713l8 1-3-8M127 451l73 42m-73-42 8 1-3 8"/>
+  </g>
+  <circle cx="814" cy="714" r="3.5" fill="#d4f562" stroke="#20211e" stroke-width="1"/>
+  <circle cx="127" cy="451" r="3.5" fill="#f3f2eb" stroke="#20211e" stroke-width="1"/>
+</svg>
