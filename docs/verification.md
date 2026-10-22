@@ -13,6 +13,7 @@
 | Windows doctor | 前台进程 API、空闲 API、当前用户 DPAPI 往返均通过 |
 | Windows 托盘生命周期 | 真实创建并退出托盘；测试模式保持暂停，断言未采样、未发送；未设置自启 |
 | npm audit | 安装锁定依赖时为 0 个已报告漏洞；不是未来安全保证 |
+| GitHub Actions | 源码提交 `28ffde5` 的 Ubuntu 网站任务（安装、测试、构建、类型检查）和 Windows 采集器任务均成功；[运行记录](https://github.com/Thegongxx/its-me/actions/runs/39766999848) |
 
 权限测试覆盖：登录与管理员授权分离、忽略用户 metadata、普通账号无法写入/自行提升权限、撤销管理员后的隔离、仅发布内容公开、未发布媒体不可读、设备哈希字段不可查询。PGlite 为真实本地 WASM PostgreSQL，Auth/Storage 平台边界使用测试 stub，不代表托管 Supabase 已接入。
 
@@ -59,7 +60,7 @@
 ## 尚未验证
 
 - 真实 Supabase Auth 登录/退出、托管 RLS、Storage 上传与撤回、Realtime 断线重连，以及实际 Windows→HTTPS→数据库→网页链路。需要用户的独立预览项目配置。
-- 未执行生产数据库迁移、未配置 Vercel、未部署公网域名；GitHub Actions 的远端执行结果需推送后另行检查。
+- 未执行生产数据库迁移、未配置 Vercel、未部署公网域名；GitHub 源码推送与 Actions 成功不等于公网部署完成。
 - 真实 Windows 登录自启、托盘所有菜单人工点击、实体手机触摸、Safari/Firefox、OS 减少动态设置、GPU 上下文丢失恢复、读屏软件和公网性能。减少动态效果已实现并审查，不能称为所有设备实测通过。
 - 临时启动 `DEMO_MODE=false` 的本地断连测试实例被自动审批策略拒绝，未提供具体原因，未执行。因此数据库断连错误页只核对实现，没有完成真实浏览器断连复验。
 - Chromium 开发阶段出现 Three.js/ANGLE 环境反射 shader 的精度 warning；未观察到 WebGL 初始化失败或画面错误，不能据此声称所有 GPU 兼容。
