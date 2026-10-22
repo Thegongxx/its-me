@@ -247,3 +247,23 @@
   .public-site .contact-strip { padding: 20px 0; }
   .public-site .contact-strip h2 { font-size: 32px; }
 }
+
+/* Shared project identity survives navigation through React ViewTransition. */
+.cover-surface { position: absolute; inset: 0; overflow: hidden; }
+.cover-surface img { object-fit: cover; }
+.cover-fallback { height: 100%; display: grid; place-items: center; padding: 25px; font-size: 28px; }
+.project-image .cover-surface { transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.project-image:is(:hover, :focus-visible) .cover-surface { transform: scale(1.025); }
+::view-transition-group(.cover-morph) { animation-duration: 650ms; animation-timing-function: cubic-bezier(.22,1,.36,1); }
+::view-transition-old(.cover-morph), ::view-transition-new(.cover-morph) { height: 100%; object-fit: cover; }
+/* Show one image throughout the morph; differently cropped snapshots must not ghost. */
+::view-transition-old(.cover-morph) { animation: none; opacity: 0; }
+::view-transition-new(.cover-morph) { animation: none; opacity: 1; mix-blend-mode: normal; }
+:root:active-view-transition-type(project-open)::view-transition-old(.cover-morph) { opacity: 1; }
+:root:active-view-transition-type(project-open)::view-transition-new(.cover-morph) { opacity: 0; }
+::view-transition-old(root) { animation-duration: 140ms; }
+::view-transition-new(root) { animation-duration: 180ms; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+  .project-image:is(:hover, :focus-visible) .cover-surface { transform: none; }
+}

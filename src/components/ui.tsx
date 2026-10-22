@@ -1,8 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+import { ProjectCover } from "@/components/project-cover";
 import { ArrowRight, ArrowUpRight, Asterisk } from "lucide-react";
 import { dateLabel, readingMinutes } from "@/lib/format";
-import { mediaUrl } from "@/lib/content";
 import type { Entry } from "@/lib/types";
 export function Eyebrow({ children, number }: { children: React.ReactNode; number?: string }) { return <div className="eyebrow"><span className="tiny-square"/>{children}{number && <span className="eyebrow-number">{number}</span>}</div>; }
 export function SectionTitle({ number, title, en, href, linkLabel }: { number: string; title: string; en: string; href?: string; linkLabel?: string }) {
@@ -15,14 +14,13 @@ export function EmptyState({ title = "下一份记录，正在路上。", descri
   return <div className="empty-state"><Asterisk size={40} strokeWidth={1}/><h2>{title}</h2><p>{description}</p>{href && <Link className="text-link" href={href}>{label ?? "返回目录"}<ArrowRight size={16}/></Link>}</div>;
 }
 export function ProjectCard({ entry, index, large = false }: { entry: Entry; index: number; large?: boolean }) {
-  const cover = mediaUrl(entry.cover_path);
   return <article className={`project-card ${large ? "project-large" : ""}`}>
-    <Link href={`/work/${entry.slug}`} className={`project-image theme-${entry.theme}`} aria-label={`查看项目：${entry.title}`}>
+    <Link href={`/work/${entry.slug}`} prefetch={true} transitionTypes={["project-open"]} className="project-image" aria-label={`查看项目：${entry.title}`}>
       {entry.demo && <span className="cover-demo">示例项目</span>}
-      {cover ? <Image src={cover} alt={`${entry.title}${entry.demo ? "概念示意图" : "项目封面"}`} fill sizes={large ? "(max-width: 760px) 100vw, 70vw" : "(max-width: 760px) 100vw, 50vw"} loading={index < 2 ? "eager" : "lazy"} unoptimized className="cover-art"/> : <span className="cover-placeholder">{entry.title.slice(0, 2)}<Asterisk size={72}/></span>}
+      <ProjectCover entry={entry} sizes={large ? "(max-width: 760px) 100vw, 70vw" : "(max-width: 760px) 100vw, 50vw"} eager={index < 2}/>
       <span className="project-open" aria-hidden="true"><ArrowUpRight size={24}/></span>
     </Link>
-    <div className="project-meta"><div><h3><Link href={`/work/${entry.slug}`}>{entry.title}</Link></h3><p>{entry.summary}</p></div><span className="mono project-year">{entry.year || "—"}</span></div>
+    <div className="project-meta"><div><h3><Link href={`/work/${entry.slug}`} transitionTypes={["project-open"]}>{entry.title}</Link></h3><p>{entry.summary}</p></div><span className="mono project-year">{entry.year || "—"}</span></div>
     <div className="tags">{entry.categories.map(c => <Link href={`/work?category=${c.slug}`} className="tag" key={c.id}>{c.name}</Link>)}</div>
   </article>;
 }
