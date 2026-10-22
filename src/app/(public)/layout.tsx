@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Navigation } from "@/components/navigation";
 import { isDemo } from "@/lib/content";
+import "./portfolio.css";
 
 export const dynamic = "force-dynamic";
 export default function PublicLayout({ children }: { children: React.ReactNode }) {

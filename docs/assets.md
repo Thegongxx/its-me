@@ -1,6 +1,6 @@
 # Original visual assets
 
-This project uses original artwork created specifically for **Xuan**. The homepage X is procedural Three.js geometry in `src/components/sculpture.tsx`, with local lighting and a generated shadow texture, not a downloaded model. The SVG illustrations contain no external imagery, product screenshots, remote resources, scripts, or personal claims. Conceptual covers remain labelled as examples.
+This project uses original artwork created specifically for **Xuan**. The homepage X is a split, bevelled letterform defined in `src/components/sculpture-model.ts`, with a graphite shell, lime core and aluminium/graphite faces. `src/components/sculpture.tsx` handles lighting, the generated shadow and interaction. It is procedural Three.js geometry, not a downloaded model. The former twisted ribbon has been replaced. The header mark and favicon share the new angular silhouette. The SVG illustrations contain no external imagery, product screenshots, remote resources, scripts, or personal claims. Conceptual covers remain labelled as examples.
 
 | File | Dimensions | Purpose |
 | --- | --- | --- |
@@ -12,6 +12,7 @@ This project uses original artwork created specifically for **Xuan**. The homepa
 ## Design rules
 
 - Current site palette: warm paper `#f5f4ef`, ink `#252823`, lime `#d0ee86`; the conceptual covers use supporting shades.
+- Homepage environments use dark `#20231f` for the exhibition and pale green `#e9ecdf` for the writing desk. The opening object leaves the screen before the project covers; it is not overlaid across reading content.
 - Each SVG has intrinsic dimensions, a `viewBox`, an accessible `title` and `desc`, and no embedded bitmap data.
 - Render with a meaningful contextual `alt` on the HTML image element. If an adjacent caption fully describes a purely decorative image, use an empty `alt` to avoid duplicate announcements.
 - Project covers can use `object-fit: cover` at their native 7:5 ratio; avoid severe cropping at narrower ratios.

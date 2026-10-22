@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "学习笔记", alternates: { canonic
 export default async function Learn({ searchParams }: { searchParams: Promise<{ category?: string; q?: string }> }) {
   const [{ category, q }, entries, categories] = await Promise.all([searchParams, getEntries("learn"), getCategories()]);
   const filtered = entries.filter(e => (!category || e.categories.some(c => c.slug === category)) && (!q || `${e.title} ${e.summary} ${e.body}`.toLowerCase().includes(q.toLowerCase())));
-  return <div className="page-shell"><PageIntro index="02" en="NOTES" title="学习笔记" description="遇到的问题、试过的方法，还有没想明白的事。"/>
+  return <div className="page-shell notes-index"><PageIntro index="02" en="FIELD NOTES" title="思考留痕" description="遇到的问题、试过的方法，还有没想明白的事。"/>
     <div className="learn-layout"><aside className="learn-sidebar"><span className="mono">按主题浏览</span><nav className="topic-nav" aria-label="知识分类">
       <Link href="/learn" aria-current={!category ? "page" : undefined}><span>全部记录</span><span className="mono">{entries.length.toString().padStart(2, "0")}</span></Link>
       {categories.map(c => <Link href={`/learn?category=${c.slug}`} key={c.id} aria-current={category === c.slug ? "page" : undefined}><span>{c.name}</span><span className="mono">{entries.filter(e => e.categories.some(t => t.id === c.id)).length.toString().padStart(2, "0")}</span></Link>)}

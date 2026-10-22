@@ -19,7 +19,7 @@ export function ProjectCard({ entry, index, large = false }: { entry: Entry; ind
   return <article className={`project-card ${large ? "project-large" : ""}`}>
     <Link href={`/work/${entry.slug}`} className={`project-image theme-${entry.theme}`} aria-label={`查看项目：${entry.title}`}>
       <span className="project-code mono">{String(index + 1).padStart(2, "0")}</span>{entry.demo && <span className="cover-demo mono">示例项目</span>}
-      {cover ? <Image src={cover} alt={`${entry.title}${entry.demo ? "概念示意图" : "项目封面"}`} fill sizes={large ? "(max-width: 760px) 100vw, 70vw" : "(max-width: 760px) 100vw, 50vw"} unoptimized className="cover-art"/> : <span className="cover-placeholder">{entry.title.slice(0, 2)}<Asterisk size={72}/></span>}
+      {cover ? <Image src={cover} alt={`${entry.title}${entry.demo ? "概念示意图" : "项目封面"}`} fill sizes={large ? "(max-width: 760px) 100vw, 70vw" : "(max-width: 760px) 100vw, 50vw"} loading={index === 0 ? "eager" : "lazy"} unoptimized className="cover-art"/> : <span className="cover-placeholder">{entry.title.slice(0, 2)}<Asterisk size={72}/></span>}
       <span className="project-open" aria-hidden="true"><ArrowUpRight size={24}/></span>
     </Link>
     <div className="project-meta"><div><h3><Link href={`/work/${entry.slug}`}>{entry.title}</Link></h3><p>{entry.summary}</p></div><span className="mono project-year">{entry.year || "—"}</span></div>

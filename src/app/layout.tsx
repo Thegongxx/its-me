@@ -12,4 +12,4 @@ export const metadata: Metadata = {
   robots: process.env.DEMO_MODE === "true" || process.env.VERCEL_ENV === "preview" ? { index: false, follow: false } : { index: true, follow: true }
 };
 export const viewport: Viewport = { themeColor: "#f5f4ef", width: "device-width", initialScale: 1 };
-export default function RootLayout({ children }: { children: React.ReactNode }) { return <html lang="zh-CN"><body><a href="#main" className="skip-link">跳到主要内容</a>{children}</body></html>; }
+export default function RootLayout({ children }: { children: React.ReactNode }) { return <html lang="zh-CN" data-scroll-behavior="smooth"><body><a href="#main" className="skip-link">跳到主要内容</a>{children}</body></html>; }

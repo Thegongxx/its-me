@@ -15,6 +15,8 @@ export function SceneStage() {
   const [chapter, setChapter] = useState(0);
   const [ready, setReady] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [headerTone, setHeaderTone] = useState("light");
+  const [controlTone, setControlTone] = useState("light");
   const toggle = useCallback(() => setExpanded(value => !value), []);
   const close = useCallback(() => setExpanded(false), []);
   useEffect(() => {
@@ -23,13 +25,21 @@ export function SceneStage() {
       for (const entry of entries) if (entry.isIntersecting) setChapter(chapters.findIndex(item => item.id === entry.target.id));
     }, { rootMargin: "-40% 0px -40% 0px" });
     nodes.forEach(node => observer.observe(node));
-    return () => observer.disconnect();
+    const tones = () => {
+      const work = nodes[1]?.getBoundingClientRect();
+      if (!work) return;
+      setHeaderTone(work.top <= 64 && work.bottom > 64 ? "dark" : "light");
+      setControlTone(work.top <= window.innerHeight - 32 && work.bottom > window.innerHeight - 32 ? "dark" : "light");
+    };
+    tones();
+    window.addEventListener("scroll", tones, { passive: true });
+    window.addEventListener("resize", tones);
+    return () => { observer.disconnect(); window.removeEventListener("scroll", tones); window.removeEventListener("resize", tones); };
   }, []);
-  return <div className="scene-layer" data-ready={ready}>
-    <div className="scene-grid" aria-hidden="true"/>
+  return <div className="scene-layer" data-ready={ready} data-chapter={chapter} data-header-tone={headerTone} data-control-tone={controlTone}>
     <div className="sculpture-fallback" aria-hidden="true"><span/><span/></div>
     <Sculpture paused={paused} reduced={!!reduced} expanded={expanded} onToggle={toggle} onReset={close} onReady={setReady}/>
-    <nav className="chapter-navigation" aria-label="首页章节">{chapters.map((item, index) => <a href={`#${item.id}`} key={item.id} aria-label={item.label} aria-current={chapter === index ? "step" : undefined}><span className="mono">0{index + 1}</span><i/></a>)}</nav>
+    <nav className="chapter-navigation" data-dark={chapter === 1} aria-label="首页章节">{chapters.map((item, index) => <a href={`#${item.id}`} key={item.id} aria-label={item.label} aria-current={chapter === index ? "step" : undefined}><span className="mono">0{index + 1}</span><i/></a>)}</nav>
     <motion.button className="scene-motion-control" whileTap={reduced ? {} : { scale: .95 }} aria-pressed={paused || !!reduced} disabled={!!reduced} aria-label={reduced ? "已遵循系统减少动态效果设置" : paused ? "播放背景动效" : "暂停背景动效"} onClick={() => setPaused(value => !value)}>{paused || reduced ? <Play size={13}/> : <Pause size={13}/>}<span>{reduced ? "静态模式" : paused ? "播放" : "暂停"}</span></motion.button>
   </div>;
 }
