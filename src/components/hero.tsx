@@ -42,8 +42,9 @@ export function Hero({ profile, projects, notes, status, demo }: {
     <section className="home-selection" id="selected-work" aria-labelledby="selection-title">
       <div className="editorial-heading"><h2 id="selection-title"><span lang="en">Selected work</span><small>作品选集</small></h2><Link href="/work" className="editorial-link">全部作品 <ArrowUpRight size={17}/></Link></div>
       <div className="selection-grid">{projects.length ? projects.slice(0, 2).map(entry => <article className="selected-project" key={entry.id}>
+        <div className="selection-topic">{entry.categories.map(category => category.name).join(" / ") || "个人作品"}</div>
         <Link className={`selected-image theme-${entry.theme}`} href={`/work/${entry.slug}`} aria-label={`查看作品：${entry.title}`}>
-          <Cover entry={entry}/>{entry.demo && <span className="reel-demo">示例作品</span>}<span className="reel-open"><ArrowUpRight size={22}/></span>
+          <Cover entry={entry}/>{entry.demo && <span className="reel-demo">示例作品</span>}<span className="reel-open" aria-hidden="true"><ArrowUpRight size={22}/></span><span className="cover-invitation" aria-hidden="true">查看案例</span>
         </Link>
         <div className="selection-caption"><h3><Link href={`/work/${entry.slug}`}>{entry.title}</Link></h3><span>{entry.year}</span></div>
         <p>{entry.summary}</p>
