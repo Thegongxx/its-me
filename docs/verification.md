@@ -13,7 +13,7 @@
 | Windows doctor | 前台进程 API、空闲 API、当前用户 DPAPI 往返均通过 |
 | Windows 托盘生命周期 | 真实创建并退出托盘；测试模式保持暂停，断言未采样、未发送；未设置自启 |
 | npm audit | 安装锁定依赖时为 0 个已报告漏洞；不是未来安全保证 |
-| GitHub Actions 基线 | 重设计前提交 `28ffde5` 的 Ubuntu 网站任务和 Windows 采集器任务成功；[基线运行记录](https://github.com/Thegongxx/its-me/actions/runs/39766999848)。本次重设计的本地构建和测试另行通过，不能用旧 CI 记录替代新提交的结果 |
+| GitHub Actions | 重设计源码提交 `43e6ba8` 的 Ubuntu 网站任务（安装、39 项测试、生产构建、类型检查）与 Windows 采集器任务均成功；[本次运行记录](https://github.com/Thegongxx/its-me/actions/runs/39775894646) |
 
 权限测试覆盖：登录与管理员授权分离、忽略用户 metadata、普通账号无法写入/自行提升权限、撤销管理员后的隔离、仅发布内容公开、未发布媒体不可读、设备哈希字段不可查询。PGlite 为真实本地 WASM PostgreSQL，Auth/Storage 平台边界使用测试 stub，不代表托管 Supabase 已接入。
 
