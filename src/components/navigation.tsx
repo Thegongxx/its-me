@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-const links = [{ href: "/work", label: "作品" }, { href: "/learn", label: "笔记" }, { href: "/about", label: "关于" }];
+const links = [{ href: "/work", label: "作品集" }, { href: "/learn", label: "思考" }, { href: "/about", label: "和我" }];
 export function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
